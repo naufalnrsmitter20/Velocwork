@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>Web Leasing and Cognitive Velocity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="src/input.css" />
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
+    <style>
+      * {
+        font-family: Inter;
+      }
+      .bgbgbg {
+        background-image: url("../img/Main_BG_Fixed.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: -10;
+      }
+    </style>
+  </head>
+
+  <body class="bg-color-main-bg">
+    <div class="bgbgbg"></div>
+
+    <section class="bg-white max-w-4xl mx-auto rounded-lg">
+      <!-- section -->
+      <div class="px-2 py-2 rounded-md p-2 m-auto bg-primary-color fixed top-4 right-4 invisible"><p id="TimerDisplay" class="font-semibold text-lg text-white w-full text-center"></p></div>
+
+      <section class="max-w-3xl mx-auto p-4 bg-white rounded-lg py-10">
+        <form id="forms_pak_chusni">
+          <div class="mb-24 max-w-3xl mx-auto">
+            <h1 class="text-center font-semibold text-black text-xl">
+              Mohon berikan indikasi sejauh mana Anda setuju dengan setiap pernyataan atau sejauh mana pernyataan-pernyataan tersebut mencerminkan kondisi Anda. Skala (1) menyatakan sangat tidak setuju, sementara itu skala (5) menyatakan
+              sangat setuju
+            </h1>
+            <h1 class="text-center font-semibold text-black text-xl mt-5">
+              <i>Kindly indicate the degree to which you align with each statement or how accurately these statements represent your current situation. Scale (1) for strongly disagree, while scale (5) for strongly agree.</i>
+            </h1>
+
+            <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 1</h5> -->
+              <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">Saya harus memahami materialitas akuntansi untuk meningkatkan laba akrual perusahaan</p>
+              <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(I must comprehend the materiality of accounting to enhance the accrual profit of the company).</i></p>
+              <br />
+              <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                <span>Strongly Disagree</span>
+                <span class="mr-5">Undecided</span>
+                <span>Strongly Agree</span>
+              </div>
+              <input id="steps-range1" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+              </div>
+            </div>
+          </div>
+
+          <div href="#" class="block max-w-3xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 2</h5> -->
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">Memperluas bantuan kepada rekan bisnis untuk meningkatkan laba akrual bukanlah masalah besar karena tidak ada yang dirugikan.</p>
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(Expanding assistance to business associates, in boostimg accrual profit, is not a significant issue as no one is adversely affected).</i></p>
+            <br />
+            <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>Strongly Disagree</span>
+              <span class="mr-5">Undecided</span>
+              <span>Strongly Agree</span>
+            </div>
+            <input id="steps-range2" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+          <br />
+
+          <div href="#" class="block max-w-3xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 3</h5> -->
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">Kesalahan standar leasing dimanfaatkan oleh setiap orang.</p>
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(Standard leasing errors are exploited by everyone).</i></p>
+            <br />
+            <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>Strongly Disagree</span>
+              <span class="mr-5">Undecided</span>
+              <span>Strongly Agree</span>
+            </div>
+            <input id="steps-range3" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+          <br />
+
+          <div href="#" class="block max-w-3xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 4</h5> -->
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">
+              Saya hanya akan terlibat secara proaktif dalam proses bisnis ketika saya memandang mendapatkan nilai manfaat di masa depan bagi pribadi atau perusahaan
+            </p>
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(I will only engage proactively in the business process when I perceive obtaining future benefits).</i></p>
+            <br />
+            <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>Strongly Disagree</span>
+              <span class="mr-5">Undecided</span>
+              <span>Strongly Agree</span>
+            </div>
+            <input id="steps-range4" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+          <br />
+
+          <div href="#" class="block max-w-3xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 5A</h5> -->
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">Saya terus berupaya untuk meningkatkan pemahaman standar akuntansi, dalam kaitannya dengan praktik di lapangan</p>
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(I continually strive to improve my understanding of accounting standards in relation to field practices).</i></p>
+            <br />
+            <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>Strongly Disagree</span>
+              <span class="mr-5">Undecided</span>
+              <span>Strongly Agree</span>
+            </div>
+            <input id="steps-range5" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+          <br />
+
+          <div href="#" class="block max-w-3xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <!-- <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Pertanyaan 5B</h5> -->
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">Saya meningkatkan keterampilan dalam meningkatkan nilai kapitalisasi aset untuk mendapatkan legitimasi publik</p>
+            <p class="font-normal text-2xl text-gray-700 dark:text-gray-400 leading-relaxed"><i>(I enhance skills in increasing the capitalization value of assets to gain public legitimacy).</i></p>
+            <br />
+            <!-- <label for="steps-range" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Range steps</label> -->
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>Strongly Disagree</span>
+              <span class="mr-5">Undecided</span>
+              <span>Strongly Agree</span>
+            </div>
+            <input id="steps-range6" value="1" type="range" min="1" max="5" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" aria-label="Slider" />
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+          </div>
+          <br />
+
+          <div class="flex justify-end w-full mt-10">
+            <button
+              onclick="javascript:history.back()"
+              type="button"
+              class="content-center text-white bg-primary-color hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-color dark:hover:bg-indigo-600 dark:focus:ring-blue-800 mr-5"
+            >
+              Sebelumnya
+            </button>
+            <div class="w-5"></div>
+            <button
+              onclick="saveAnswer();javascript:history.forward()"
+              type="button"
+              class="content-center text-white bg-primary-color hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-color dark:hover:bg-indigo-600 dark:focus:ring-blue-800"
+            >
+              Selanjutnya
+            </button>
+          </div>
+          <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+        </form>
+      </section>
+    </section>
+
+    <script>
+      let timerNumber = "timerframe1";
+      let timeStart = parseInt(sessionStorage.getItem(timerNumber)) || 0; // Time Start
+      var timer;
+      function startTimer(duration, display) {
+        timer = duration;
+        var minutes, seconds;
+        let warning = timeStart;
+        var ok = false;
+        var form = document.forms.exam;
+
+        var t = setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          display.textContent = minutes + ":" + seconds;
+          sessionStorage.setItem(timerNumber, timer);
+          if (++timer <= 0) {
+            timer = duration;
+          }
+        }, 1000);
+      }
+
+      var rangeInput1 = document.getElementById("steps-range1");
+      var rangeInput2 = document.getElementById("steps-range2");
+      var rangeInput3 = document.getElementById("steps-range3");
+      var rangeInput4 = document.getElementById("steps-range4");
+      var rangeInput5 = document.getElementById("steps-range5");
+      var rangeInput6 = document.getElementById("steps-range6");
+      rangeInput1.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question1"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      rangeInput2.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question2"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      rangeInput3.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question3"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      rangeInput4.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question4"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      rangeInput5.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question5"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      rangeInput6.addEventListener("input", function () {
+        const formData = JSON.parse(sessionStorage.getItem("FormData")) || {};
+        formData["question6"] = this.value;
+        sessionStorage.setItem("FormData", JSON.stringify(formData));
+      });
+
+      window.onload = function () {
+        var time = timeStart, // your time in seconds here
+          display = document.querySelector("#TimerDisplay");
+        startTimer(time, display);
+      };
+
+      function loadAnswers() {
+        const session = sessionStorage.getItem("FormData");
+        if (session) {
+          const sessionObject = JSON.parse(session);
+          for (var question in sessionObject) {
+            const inputs = document.getElementsByName(question);
+            if (inputs) {
+              inputs[0].value = sessionObject[question];
+            }
+          }
+        }
+        const formdata = JSON.parse(sessionStorage.getItem("FormData"));
+        if (formdata) {
+          rangeInput1.value = formdata.question1 || 1;
+          rangeInput2.value = formdata.question2 || 1;
+          rangeInput3.value = formdata.question3 || 1;
+          rangeInput4.value = formdata.question4 || 1;
+          rangeInput5.value = formdata.question5 || 1;
+          rangeInput6.value = formdata.question6 || 1;
+        }
+      }
+
+      const form = document.forms["forms_pak_chusni"];
+      form.addEventListener("submit", saveAnswer);
+      function saveAnswer(e) {
+        e?.preventDefault();
+
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+        let formData = new FormData(form);
+
+        let object = Object.fromEntries(formData.entries());
+        object[timerNumber] = timer;
+        tempStorage = { ...tempStorage, ...object };
+        console.log(tempStorage);
+        sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+
+        window.location.href = "frame!_value_2.html";
+      }
+    </script>
+  </body>
+</html>
