@@ -1386,10 +1386,6 @@ input:checked + .toggle-bg {
   max-width: 1280px;
 }
 
-.max-w-sm {
-  max-width: 24rem;
-}
-
 .max-w-xl {
   max-width: 36rem;
 }
@@ -1746,6 +1742,11 @@ input:checked + .toggle-bg {
   padding-right: 0.75rem;
 }
 
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1784,16 +1785,6 @@ input:checked + .toggle-bg {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.px-32 {
-  padding-left: 8rem;
-  padding-right: 8rem;
 }
 
 .pb-2 {
