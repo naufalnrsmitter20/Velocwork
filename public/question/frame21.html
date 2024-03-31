@@ -13,9 +13,7 @@
         font-family: Inter;
       }
       .bgbgbg {
-        background-image: url("../img/Main_BG_Fixed.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: white;
         position: fixed;
         top: 0;
         left: 0;
@@ -177,7 +175,7 @@
                       <td class="px-6 py-4">Current Liabilities</td>
                       <td class="px-6 py-4">
                         <input
-                          type="text"
+                          type="number"
                           id="currentLiabilities"
                           name="smallUndervalueTab4_A1"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 abso"
@@ -201,7 +199,7 @@
                       <td class="px-6 py-4">Non Current Liabilities</td>
                       <td class="px-6 py-4">
                         <input
-                          type="text"
+                          type="number"
                           id="nonCurrentLiabilities"
                           name="smallUndervalueTab4_B2"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 abso"
@@ -227,7 +225,7 @@
                     <tr class="bg-white dark:bg-gray-800">
                       <td class="px-6 py-4"></td>
                       <td class="px-6 py-4"></td>
-                      <td class="px-6 py-4"> Total Equity</td>
+                      <td class="px-6 py-4">Total Equity</td>
                       <td class="px-6 py-4">
                         <p id="equityTotalLiabilities">0</p>
                       </td>
@@ -260,7 +258,7 @@
             </button>
             <div class="w-5"></div>
             <button
-              onclick="saveAnswer();updateSession();javascript:history.forward()"
+              onclick="saveAnswer();updateSession()"
               type="button"
               class="content-center text-white bg-primary-color hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-color dark:hover:bg-indigo-600 dark:focus:ring-blue-800"
             >
@@ -349,28 +347,36 @@
         tempStorage = { ...tempStorage, ...object };
         console.log(tempStorage);
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
-        window.location.href = "frame22.html";
+        checkAnswer();
       }
 
-      // Menampilkan Total Assets
-      //let jsonString = sessionStorage.getItem("FormData");
-      //let jsonObject = JSON.parse(jsonString);
+      function checkAnswer() {
+        const session = sessionStorage.getItem("FormData");
+        let InonCurrentAssets = document.getElementById("nonCurrentAssets").value;
+        let IcurrentLiabilities = document.getElementById("currentLiabilities").value;
+        let InonCurrentLiabilities = document.getElementById("nonCurrentLiabilities").value;
 
-      //let inputNonCurrentAssets = document.getElementById("smallUndervalueTab4_B1");
-      //let currentAssets = document.getElementById("currentAsset").innerHTML
-      //inputNonCurrentAssets.addEventListener("input", () => updateTotal())
-      //
-      //function updateTotal() {
-      //  let valueNonCurrent = parseFloat(inputNonCurrentAssets.value) || 0;
-      //  let valueCurrent = parseFloat(currentAssets) || 0
-      //
-      //  let total1 = valueCurrent + valueNonCurrent;
-      //  const a = "dhbhjdhsbds";
-      //
-      //  let totalElement1 = document.getElementById("totalAssets").innerHTML
-      //    totalElement1.innerHTML = total1;
-      //
-      //}
+        let update = {
+          InonCurrentAssets: parseInt(InonCurrentAssets),
+          IcurrentLiabilities: parseInt(IcurrentLiabilities),
+          InonCurrentLiabilities: parseInt(InonCurrentLiabilities),
+        };
+        const isCorrect = update.InonCurrentAssets == 273406179 && update.IcurrentLiabilities == 57143295 && update.InonCurrentLiabilities == 220397119;
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+
+        if (isCorrect === true) {
+          tempStorage["statusAnswer_case1"] = "accepted";
+          sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+          window.location.href = "frame21-accepted.html";
+        } else if (isCorrect === false && tempStorage.statusAnswer_case1 == "rejected") {
+          window.history.pushState(null, "", "frame21-rejected.html");
+          window.location.href = "frame21-rejected.html";
+        } else if (isCorrect === false) {
+          window.location.href = "frame21-wrong-answer.html";
+        }
+        console.log(update.InonCurrentAssets, update.IcurrentLiabilities, update.InonCurrentLiabilities);
+        console.log(isCorrect);
+      }
 
       function updateTotal() {
         let currentAssets = document.getElementById("currentAssets");
@@ -384,7 +390,7 @@
         let totalElement3 = document.getElementById("equityTotalLiabilities");
 
         let valueNonCurrent1 = parseFloat(nonCurrentAssets.value) || 0;
-        let valueCurrent1 = parseFloat(currentAssets.textContent) || 0;
+        let valueCurrent1 = parseFloat(currentAssets.value) || 0;
 
         let valueCurrent2 = parseFloat(inputCurrentLiabilities.value) || 0;
         let valueNonCurrent2 = parseFloat(inputNonCurrentLiabilities.value) || 0;

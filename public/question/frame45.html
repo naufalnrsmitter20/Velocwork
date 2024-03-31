@@ -13,9 +13,7 @@
         font-family: Inter;
       }
       .bgbgbg {
-        background-image: url("../img/Main_BG_Fixed.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: white;
         position: fixed;
         top: 0;
         left: 0;
@@ -349,7 +347,34 @@
         console.log(tempStorage);
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
 
-        window.location.href = "frame46.html";
+        checkAnswer();
+      }
+      function checkAnswer() {
+        const session = sessionStorage.getItem("FormData");
+        let InonCurrentAssets = document.getElementById("nonCurrentAssets").value;
+        let IcurrentLiabilities = document.getElementById("currentLiabilities").value;
+        let InonCurrentLiabilities = document.getElementById("nonCurrentLiabilities").value;
+
+        let update = {
+          InonCurrentAssets: parseInt(InonCurrentAssets),
+          IcurrentLiabilities: parseInt(IcurrentLiabilities),
+          InonCurrentLiabilities: parseInt(InonCurrentLiabilities),
+        };
+        const isCorrect = update.InonCurrentAssets == 273406179 && update.IcurrentLiabilities == 57143295 && update.InonCurrentLiabilities == 220397119;
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+
+        if (isCorrect === true) {
+          tempStorage["statusAnswer_case1"] = "accepted";
+          sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+          window.location.href = "frame45-accepted.html";
+        } else if (isCorrect === false && tempStorage.statusAnswer_case1 == "rejected") {
+          window.history.pushState(null, "", "frame45-rejected.html");
+          window.location.href = "frame45-rejected.html";
+        } else if (isCorrect === false) {
+          window.location.href = "frame45-wrong-answer.html";
+        }
+        console.log(update.InonCurrentAssets, update.IcurrentLiabilities, update.InonCurrentLiabilities);
+        console.log(isCorrect);
       }
 
       function updateTotal() {

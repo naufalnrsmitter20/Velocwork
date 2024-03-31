@@ -12,9 +12,7 @@
         font-family: Inter;
       }
       .bgbgbg {
-        background-image: url("../img/Main_BG_Fixed.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: white;
         position: fixed;
         top: 0;
         left: 0;
@@ -344,8 +342,37 @@
         console.log(tempStorage);
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
 
-        window.location.href = "zSubmit.html";
+        checkAnswer();
       }
+
+      function checkAnswer() {
+        const session = sessionStorage.getItem("FormData");
+        let InonCurrentAssets = document.getElementById("nonCurrentAssets").value;
+        let IcurrentLiabilities = document.getElementById("currentLiabilities").value;
+        let InonCurrentLiabilities = document.getElementById("nonCurrentLiabilities").value;
+
+        let update = {
+          InonCurrentAssets: parseInt(InonCurrentAssets),
+          IcurrentLiabilities: parseInt(IcurrentLiabilities),
+          InonCurrentLiabilities: parseInt(InonCurrentLiabilities),
+        };
+        const isCorrect = update.InonCurrentAssets == 466851875 && update.IcurrentLiabilities == 89356054 && update.InonCurrentLiabilities == 385926118;
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+
+        if (isCorrect === true) {
+          tempStorage["statusAnswer_case2"] = "accepted";
+          sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+          window.location.href = "frame51-accepted.html";
+        } else if (isCorrect === false && tempStorage.statusAnswer_case2 == "rejected") {
+          window.history.pushState(null, "", "frame51-rejected.html");
+          window.location.href = "frame51-rejected.html";
+        } else if (isCorrect === false) {
+          window.location.href = "frame51-wrong-answer.html";
+        }
+        console.log(update.InonCurrentAssets, update.IcurrentLiabilities, update.InonCurrentLiabilities);
+        console.log(isCorrect);
+      }
+
       function updateTotal() {
         let currentAssets = document.getElementById("currentAssets");
         let nonCurrentAssets = document.getElementById("nonCurrentAssets");

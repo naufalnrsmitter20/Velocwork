@@ -24,7 +24,7 @@
       </section>
       <div class="flex justify-center w-full mt-8">
         <button
-          onclick="javascript:history.back()"
+          onclick="back()"
           type="button"
           class="content-center text-white font-semibold bg-primary-color hover:bg-sky-500 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-32 py-3 text-center dark:bg-primary-color dark:hover:bg-sky-500 dark:focus:ring-blue-800"
         >
@@ -32,5 +32,19 @@
         </button>
       </div>
     </main>
+    <form id="forms_pak_chusni">
+      <input class="absolute invisible" id="setValues" type="text" />
+    </form>
+
+    <script>
+      function back() {
+        let setValues = (document.getElementById("setValues").value = "rejected");
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+        tempStorage["statusAnswer_case1"] = setValues;
+        sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+        console.log(tempStorage.statusAnswer_case1);
+        window.location.href = "question/frame33.html";
+      }
+    </script>
   </body>
 </html>
