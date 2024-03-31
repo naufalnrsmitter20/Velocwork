@@ -348,7 +348,35 @@
         console.log(tempStorage);
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
 
-        window.location.href = "zSubmit.html";
+        checkAnswer();
+      }
+
+      function checkAnswer() {
+        const session = sessionStorage.getItem("FormData");
+        let InonCurrentAssets = document.getElementById("nonCurrentAssets").value;
+        let IcurrentLiabilities = document.getElementById("currentLiabilities").value;
+        let InonCurrentLiabilities = document.getElementById("nonCurrentLiabilities").value;
+
+        let update = {
+          InonCurrentAssets: parseInt(InonCurrentAssets),
+          IcurrentLiabilities: parseInt(IcurrentLiabilities),
+          InonCurrentLiabilities: parseInt(InonCurrentLiabilities),
+        };
+        const isCorrect = update.InonCurrentAssets == 273406179 && update.IcurrentLiabilities == 57143295 && update.InonCurrentLiabilities == 220397119;
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+
+        if (isCorrect === true) {
+          tempStorage["statusAnswer_case2"] = "accepted";
+          sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+          window.location.href = "frame63-accepted.html";
+        } else if (isCorrect === false && tempStorage.statusAnswer_case2 == "rejected") {
+          window.history.pushState(null, "", "frame63-rejected.html");
+          window.location.href = "frame63-rejected.html";
+        } else if (isCorrect === false) {
+          window.location.href = "frame63-wrong-answer.html";
+        }
+        console.log(update.InonCurrentAssets, update.IcurrentLiabilities, update.InonCurrentLiabilities);
+        console.log(isCorrect);
       }
 
       function updateTotal() {

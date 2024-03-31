@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome To VelocWork !</title>
     <link rel="stylesheet" href="src/input.css" />
-    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="../output.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
     <style>
       * {
@@ -18,7 +18,7 @@
       <section class="flex-row items-center h-full justify-center">
         <div class="text-black mx-auto text-center text-3xl font-bold">Mohon Maaf, Jawaban Anda tidak akurat!</div>
         <div class="text-black mx-auto text-center text-xl font-medium mt-4"><i>“Unfortunately, your answer seems to be inaccurate” </i></div>
-        <img src="img/Questions-bro.png" alt="Welcome" width="320" class="mx-auto" />
+        <img src="../img/Questions-bro.png" alt="Welcome" width="320" class="mx-auto" />
         <div class="text-black mx-auto text-center text-3xl font-bold">Anda memiliki satu kesempatan lagi untuk meninjau kembali jawaban Anda!</div>
         <div class="text-black mx-auto text-center text-xl font-medium mt-4"><i>“You have one attempt to check your answer!” </i></div>
       </section>
@@ -40,10 +40,10 @@
       function back() {
         let setValues = (document.getElementById("setValues").value = "rejected");
         let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
-        tempStorage["statusAnswer_case1"] = setValues;
+        tempStorage["statusAnswer_case2"] = setValues;
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
         console.log(tempStorage.statusAnswer_case1);
-        window.location.href = "question/frame33.html";
+        window.location.href = "frame27.html";
       }
     </script>
   </body>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="src/input.css" />
     <link rel="stylesheet" href="../output.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
+    <!--  -->
     <style>
       * {
         font-family: Inter;
@@ -348,7 +349,35 @@
         tempStorage = { ...tempStorage, ...object };
         console.log(tempStorage);
         sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
-        window.location.href = "zSubmit.html";
+        checkAnswer();
+      }
+
+      function checkAnswer() {
+        const session = sessionStorage.getItem("FormData");
+        let InonCurrentAssets = document.getElementById("nonCurrentAssets").value;
+        let IcurrentLiabilities = document.getElementById("currentLiabilities").value;
+        let InonCurrentLiabilities = document.getElementById("nonCurrentLiabilities").value;
+
+        let update = {
+          InonCurrentAssets: parseInt(InonCurrentAssets),
+          IcurrentLiabilities: parseInt(IcurrentLiabilities),
+          InonCurrentLiabilities: parseInt(InonCurrentLiabilities),
+        };
+        const isCorrect = update.InonCurrentAssets == 273406179 && update.IcurrentLiabilities == 57143295 && update.InonCurrentLiabilities == 220397119;
+        let tempStorage = JSON.parse(sessionStorage.getItem("FormData"));
+
+        if (isCorrect === true) {
+          tempStorage["statusAnswer_case2"] = "accepted";
+          sessionStorage.setItem("FormData", JSON.stringify(tempStorage));
+          window.location.href = "frame27-accepted.html";
+        } else if (isCorrect === false && tempStorage.statusAnswer_case2 == "rejected") {
+          window.history.pushState(null, "", "frame27-rejected.html");
+          window.location.href = "frame27-rejected.html";
+        } else if (isCorrect === false) {
+          window.location.href = "frame27-wrong-answer.html";
+        }
+        console.log(update.InonCurrentAssets, update.IcurrentLiabilities, update.InonCurrentLiabilities);
+        console.log(isCorrect);
       }
 
       function updateTotal() {
