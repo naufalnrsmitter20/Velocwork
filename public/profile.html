@@ -102,23 +102,22 @@
             required
           />
         </div>
+        <!-- Dropdown IPK -->
         <div>
           <label for="IPK" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Indeks Prestasi Kumulatif (IPK/GPA) <span class="text-red-600">*</span> </label>
-          <input
-            type="number"
-            name="IPK"
-            id="IPK"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 shadow-sm shadow-slate-300/80 focus:shadow-sm focus:shadow-blue-300/100"
-            placeholder="Masukkan IPK"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            required
-          />
+          <select name="IPK" id="IPK" class=" rounded-lg border border-gray-300 bg-gray-50 shadow-slate-300/80 focus:shadow-sm focus:shadow-blue-300/100 w-full text-gray-900 text-sm">
+            <option value="">- Choose -</option>
+            <option value="< 3.25">< 3.25</option>
+            <option value="3.25 - 3.50">3.25 - 3.50</option>
+            <option value="3.51 - 3.75">3.51 - 3.75</option>
+            <option value="> 3.75">> 3.75</option>
+          </select>
         </div>
         <div class="flex justify-end">
           <button
             type="submit"
             onclick="saveAnswer();javascript:history.forward()"
-            class="btn-kirim text-white bg-primary-color hover:bg-indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-color dark:hover:bg-indigo-600 dark:focus:ring-blue-800 mt-5"
+            class="btn-kirim text-white bg-primary-color hover:bg-sky-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-color dark:hover:bg-indigo-600 dark:focus:ring-blue-800 mt-5"
           >
             Selanjutnya
           </button>
